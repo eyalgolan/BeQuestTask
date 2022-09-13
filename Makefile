@@ -1,4 +1,4 @@
-build: ## build docker containers.
+install: ## build docker containers.
 	docker-compose -f deployment/docker-compose.yml up --build
 start: ## start docker containers.
 	docker-compose -f deployment/docker-compose.yml up --no-build
