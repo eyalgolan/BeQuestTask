@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  app:
+    container_name: answers_app
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - DATABASE_HOST=${DB_HOST}
+      - DATABASE_PORT=${DB_PORT}
+    build:
+      context: ..
+      dockerfile: build/package/Dockerfile
+    ports:
+      - '8080:8080'
+    links:
+      - db
+    depends_on:
+      - db
+    restart: on-failure
+
+  db:
+    image: postgres:latest
+    container_name: answers_db
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - DATABASE_HOST=${DB_HOST}
+      - DATABASE_PORT=${DB_PORT}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
