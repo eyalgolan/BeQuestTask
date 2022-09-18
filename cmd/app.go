@@ -2,7 +2,9 @@ package main
 
 import (
 	"BeQuestPrep/internal/db_utils/postgress_utils"
+	"BeQuestPrep/internal/rest_utils"
 	"BeQuestPrep/internal/rest_utils/gin_context"
+	"fmt"
 	"github.com/gin-gonic/gin"
 )
 import (
@@ -12,6 +14,7 @@ import (
 
 var cfg struct {
 	postgress_utils.PostgresConfig
+	rest_utils.RestConfig
 }
 
 func main() {
@@ -23,5 +26,5 @@ func main() {
 	router := gin.Default()
 	gin_context.SetDBInContext(router, *db)
 	routes.InitialiseRoutes(router)
-	router.Run("0.0.0.0:8080")
+	router.Run(fmt.Sprintf("%s:%s", cfg.RestConfig.Address, cfg.RestConfig.Port))
 }
