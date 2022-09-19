@@ -26,7 +26,7 @@ func PostAnswer(c *gin.Context) {
 		return
 	}
 	db := gin_context.GetDBFromContext(c)
-	err := db.CreateAnswer(newAnswer.Data)
+	err := db_utils.CreateAnswer(&db, newAnswer.Data)
 	if err != nil {
 		var duplicateAnswerErr *db_utils.DuplicateAnswerErr
 		if errors.As(err, &duplicateAnswerErr) {
