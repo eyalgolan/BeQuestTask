@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"BeQuestPrep/internal/db_utils"
 	"BeQuestPrep/internal/rest_utils"
 	"BeQuestPrep/internal/rest_utils/gin_context"
 	"github.com/gin-gonic/gin"
@@ -18,7 +19,7 @@ func GetAnswer(c *gin.Context) {
 		})
 		return
 	}
-	answer, err := db.GetAnswer(key)
+	answer, err := db_utils.GetAnswer(&db, key)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			c.IndentedJSON(http.StatusBadRequest, gin.H{
