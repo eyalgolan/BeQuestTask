@@ -12,5 +12,5 @@ func (c *Client) DeleteAnswer(answer rest_utils.AnswerData) error {
 	if err != nil {
 		return errors.Wrap(err, "delete answer")
 	}
-	return c.updateHistoryDelete(answer)
+	return nil
 }

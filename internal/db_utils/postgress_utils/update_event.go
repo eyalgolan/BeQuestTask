@@ -6,9 +6,9 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (c *Client) CreateHistory(answer rest_utils.AnswerData) error {
+func (c *Client) UpdateEvent(answer rest_utils.AnswerData) error {
 	err := c.DB.Create(&models.Event{
-		Event:   "create",
+		Event:   "update",
 		Key:     answer.Key,
 		Value:   answer.Value,
 		Deleted: false,
@@ -22,7 +22,7 @@ func (c *Client) CreateHistory(answer rest_utils.AnswerData) error {
 		if err != nil {
 			return errors.Wrap(err, "rollback after unable to save to history")
 		}
-		return errors.Wrap(err, "add create event to history")
+		return errors.Wrap(err, "add update event to history")
 	}
 	return nil
 }

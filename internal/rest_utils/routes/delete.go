@@ -53,6 +53,13 @@ func DeleteAnswer(c *gin.Context) {
 		}
 		return
 	}
+	err = db_utils.DeleteEvent(&db, answerToDelete.Data)
+	if err != nil {
+		c.IndentedJSON(http.StatusInternalServerError, gin.H{
+			"message": err,
+		})
+		return
+	}
 	c.IndentedJSON(http.StatusOK, gin.H{
 		"message": answerToDelete,
 	})

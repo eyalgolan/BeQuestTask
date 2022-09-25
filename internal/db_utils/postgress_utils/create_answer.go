@@ -29,5 +29,5 @@ func (c *Client) CreateAnswer(answer rest_utils.AnswerData) error {
 	if err != nil {
 		return errors.Wrap(err, "create record")
 	}
-	return c.CreateHistory(answer)
+	return c.CreateEvent(answer)
 }
