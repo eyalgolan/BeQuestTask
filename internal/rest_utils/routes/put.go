@@ -40,6 +40,7 @@ func PutAnswer(c *gin.Context) {
 		c.IndentedJSON(http.StatusInternalServerError, gin.H{
 			"message": err,
 		})
+		return
 	}
 	c.IndentedJSON(http.StatusOK, updateAnswer)
 }

@@ -40,6 +40,13 @@ func PostAnswer(c *gin.Context) {
 		}
 		return
 	}
+	err = db_utils.CreateHistory(&db, newAnswer.Data)
+	if err != nil {
+		c.IndentedJSON(http.StatusInternalServerError, gin.H{
+			"message": err,
+		})
+		return
+	}
 	c.IndentedJSON(http.StatusCreated, gin.H{
 		"message": newAnswer,
 	})
