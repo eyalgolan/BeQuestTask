@@ -1,8 +1,8 @@
 package postgress_utils
 
 import (
-	"BeQuestPrep/internal/db_utils/postgress_utils/models"
-	"BeQuestPrep/internal/rest_utils"
+	"KeyValuePermStore/internal/db_utils/postgress_utils/models"
+	"KeyValuePermStore/internal/rest_utils"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 )

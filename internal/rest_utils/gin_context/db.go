@@ -1,7 +1,7 @@
 package gin_context
 
 import (
-	"BeQuestPrep/internal/db_utils/postgress_utils"
+	"KeyValuePermStore/internal/db_utils/postgress_utils"
 	"github.com/gin-gonic/gin"
 )
 

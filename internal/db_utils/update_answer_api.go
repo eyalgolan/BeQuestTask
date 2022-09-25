@@ -1,6 +1,6 @@
 package db_utils
 
-import "BeQuestPrep/internal/rest_utils"
+import "KeyValuePermStore/internal/rest_utils"
 
 type UpdateAPI interface {
 	UpdateAnswer(answer rest_utils.AnswerData) error

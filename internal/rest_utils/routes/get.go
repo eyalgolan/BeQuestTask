@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"BeQuestPrep/internal/db_utils"
-	"BeQuestPrep/internal/rest_utils"
-	"BeQuestPrep/internal/rest_utils/gin_context"
+	"KeyValuePermStore/internal/db_utils"
+	"KeyValuePermStore/internal/rest_utils"
+	"KeyValuePermStore/internal/rest_utils/gin_context"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"

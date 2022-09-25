@@ -1,14 +1,14 @@
 package main
 
 import (
-	"BeQuestPrep/internal/db_utils/postgress_utils"
-	"BeQuestPrep/internal/rest_utils"
-	"BeQuestPrep/internal/rest_utils/gin_context"
+	"KeyValuePermStore/internal/db_utils/postgress_utils"
+	"KeyValuePermStore/internal/rest_utils"
+	"KeyValuePermStore/internal/rest_utils/gin_context"
 	"fmt"
 	"github.com/gin-gonic/gin"
 )
 import (
-	"BeQuestPrep/internal/rest_utils/routes"
+	"KeyValuePermStore/internal/rest_utils/routes"
 	"github.com/joeshaw/envdecode"
 )
 

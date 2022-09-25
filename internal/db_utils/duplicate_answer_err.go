@@ -1,7 +1,7 @@
 package db_utils
 
 import (
-	"BeQuestPrep/internal/rest_utils"
+	"KeyValuePermStore/internal/rest_utils"
 	"fmt"
 )
 

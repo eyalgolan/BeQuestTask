@@ -1,7 +1,7 @@
 package postgress_utils
 
 import (
-	"BeQuestPrep/internal/rest_utils"
+	"KeyValuePermStore/internal/rest_utils"
 	"github.com/pkg/errors"
 )
 

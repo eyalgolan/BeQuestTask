@@ -1,4 +1,4 @@
-module BeQuestPrep
+module KeyValuePermStore
 
 go 1.18
 
