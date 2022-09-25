@@ -35,5 +35,11 @@ func PutAnswer(c *gin.Context) {
 		}
 		return
 	}
+	err = db_utils.UpdateHistory(&db, updateAnswer.Data)
+	if err != nil {
+		c.IndentedJSON(http.StatusInternalServerError, gin.H{
+			"message": err,
+		})
+	}
 	c.IndentedJSON(http.StatusOK, updateAnswer)
 }

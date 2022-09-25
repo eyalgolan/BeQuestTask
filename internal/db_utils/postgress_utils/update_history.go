@@ -6,7 +6,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (c *Client) updateHistoryUpdate(answer rest_utils.AnswerData) error {
+func (c *Client) UpdateHistory(answer rest_utils.AnswerData) error {
 	err := c.DB.Create(&models.Event{
 		Event:   "update",
 		Key:     answer.Key,

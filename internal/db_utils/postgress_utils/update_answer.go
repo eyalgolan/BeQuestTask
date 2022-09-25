@@ -20,5 +20,5 @@ func (c *Client) UpdateAnswer(answer rest_utils.AnswerData) error {
 	if err != nil {
 		return errors.Wrap(err, "update record")
 	}
-	return c.updateHistoryUpdate(answer)
+	return nil
 }
