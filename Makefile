@@ -6,3 +6,4 @@ stop:  ## Stop docker containers.
 	docker-compose -f deployment/docker-compose.yml down
 clean: ## clear artefacts.
 	docker system prune
+	sudo rm -rf deployment/pg_data
