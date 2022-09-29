@@ -7,7 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func (c *Client) UpdateAnswer(answer rest_utils.AnswerData) error {
+func (c *DBClient) UpdateAnswer(answer rest_utils.AnswerData) error {
 	_, err := c.GetLatestAnswer(answer.Key)
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return errors.Wrap(err, "update answer")

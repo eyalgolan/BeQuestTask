@@ -5,13 +5,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetDBInContext(router *gin.Engine, db postgress_utils.Client) {
+func SetDBInContext(router *gin.Engine, db postgress_utils.DBClient) {
 	router.Use(func(c *gin.Context) {
 		c.Set("db", db)
 		c.Next()
 	})
 }
 
-func GetDBFromContext(c *gin.Context) postgress_utils.Client {
-	return c.MustGet("db").(postgress_utils.Client)
+func GetDBFromContext(c *gin.Context) postgress_utils.DBClient {
+	return c.MustGet("db").(postgress_utils.DBClient)
 }

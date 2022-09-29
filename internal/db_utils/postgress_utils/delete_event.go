@@ -6,7 +6,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (c *Client) DeleteEvent(answer rest_utils.AnswerData) error {
+func (c *DBClient) DeleteEvent(answer rest_utils.AnswerData) error {
 	err := c.DB.Create(&models.Event{
 		Event:   "delete",
 		Key:     answer.Key,

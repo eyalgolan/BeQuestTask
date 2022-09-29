@@ -1,7 +1,6 @@
 package routes
 
 import (
-	"github.com/eyalgolan/key-value-persistent-store/internal/db_utils"
 	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
 	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils/gin_context"
 	"github.com/gin-gonic/gin"
@@ -19,7 +18,7 @@ func GetAnswer(c *gin.Context) {
 		})
 		return
 	}
-	answer, err := db_utils.GetAnswer(&db, key)
+	answer, err := db.GetAnswer(key)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			c.IndentedJSON(http.StatusBadRequest, gin.H{

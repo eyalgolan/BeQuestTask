@@ -1,7 +1,6 @@
 package routes
 
 import (
-	"github.com/eyalgolan/key-value-persistent-store/internal/db_utils"
 	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
 	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils/gin_context"
 	"github.com/gin-gonic/gin"
@@ -40,7 +39,7 @@ func DeleteAnswer(c *gin.Context) {
 		return
 	}
 	db := gin_context.GetDBFromContext(c)
-	err := db_utils.DeleteAnswer(&db, answerToDelete.Data)
+	err := db.DeleteAnswer(answerToDelete.Data)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			c.IndentedJSON(http.StatusBadRequest, gin.H{
@@ -53,7 +52,7 @@ func DeleteAnswer(c *gin.Context) {
 		}
 		return
 	}
-	err = db_utils.DeleteEvent(&db, answerToDelete.Data)
+	err = db.DeleteEvent(answerToDelete.Data)
 	if err != nil {
 		c.IndentedJSON(http.StatusInternalServerError, gin.H{
 			"message": err,

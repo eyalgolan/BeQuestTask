@@ -5,7 +5,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (c *Client) GetHistory(key string) ([]models.Event, error) {
+func (c *DBClient) GetHistory(key string) ([]models.Event, error) {
 	var keyHistory []models.Event
 	result := c.DB.Where("key = ?", key)
 	if result.Error != nil {

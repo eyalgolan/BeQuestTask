@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-type Client struct {
+type DBClient struct {
 	DB *gorm.DB
 }
 
@@ -22,7 +22,7 @@ type PostgresConfig struct {
 	SSLMode  string `env:"SSL_MODE,default=disable"`
 }
 
-func ConnectToDB(cfg PostgresConfig) (*Client, error) {
+func ConnectToDB(cfg PostgresConfig) (*DBClient, error) {
 	dsn := fmt.Sprintf(
 		"host=%s user=%s password=%s dbname=%s port=%d sslmode=%s",
 		cfg.Host,
@@ -41,5 +41,5 @@ func ConnectToDB(cfg PostgresConfig) (*Client, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "migrate db")
 	}
-	return &Client{DB: db}, nil
+	return &DBClient{DB: db}, nil
 }

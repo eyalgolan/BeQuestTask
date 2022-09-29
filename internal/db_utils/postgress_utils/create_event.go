@@ -6,7 +6,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (c *Client) CreateEvent(answer rest_utils.AnswerData) error {
+func (c *DBClient) CreateEvent(answer rest_utils.AnswerData) error {
 	err := c.DB.Create(&models.Event{
 		Event:   "create",
 		Key:     answer.Key,

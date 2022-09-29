@@ -5,7 +5,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-func (c *Client) DeleteAnswer(answer rest_utils.AnswerData) error {
+func (c *DBClient) DeleteAnswer(answer rest_utils.AnswerData) error {
 	latestAnswer, err := c.GetLatestAnswer(answer.Key)
 	latestAnswer.Deleted = true
 	err = c.DB.Save(&latestAnswer).Error
