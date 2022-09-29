@@ -1,14 +1,14 @@
 package main
 
 import (
-	"KeyValuePermStore/internal/db_utils/postgress_utils"
-	"KeyValuePermStore/internal/rest_utils"
-	"KeyValuePermStore/internal/rest_utils/gin_context"
 	"fmt"
+	"github.com/eyalgolan/key-value-persistent-store/internal/db_utils/postgress_utils"
+	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
+	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils/gin_context"
 	"github.com/gin-gonic/gin"
 )
 import (
-	"KeyValuePermStore/internal/rest_utils/routes"
+	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils/routes"
 	"github.com/joeshaw/envdecode"
 )
 

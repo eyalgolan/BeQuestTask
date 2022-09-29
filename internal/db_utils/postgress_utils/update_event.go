@@ -1,8 +1,8 @@
 package postgress_utils
 
 import (
-	"KeyValuePermStore/internal/db_utils/postgress_utils/models"
-	"KeyValuePermStore/internal/rest_utils"
+	"github.com/eyalgolan/key-value-persistent-store/internal/db_utils/postgress_utils/models"
+	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
 	"github.com/pkg/errors"
 )
 

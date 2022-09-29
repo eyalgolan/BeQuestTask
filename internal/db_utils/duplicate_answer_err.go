@@ -1,8 +1,8 @@
 package db_utils
 
 import (
-	"KeyValuePermStore/internal/rest_utils"
 	"fmt"
+	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
 )
 
 type DuplicateAnswerErr struct {

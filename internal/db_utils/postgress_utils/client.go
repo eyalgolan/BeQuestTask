@@ -1,8 +1,8 @@
 package postgress_utils
 
 import (
-	"KeyValuePermStore/internal/db_utils/postgress_utils/models"
 	"fmt"
+	"github.com/eyalgolan/key-value-persistent-store/internal/db_utils/postgress_utils/models"
 	"github.com/pkg/errors"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

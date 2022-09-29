@@ -1,14 +1,14 @@
 package postgress_utils
 
 import (
-	"KeyValuePermStore/internal/db_utils/postgress_utils/models"
-	"KeyValuePermStore/internal/rest_utils"
+	"github.com/eyalgolan/key-value-persistent-store/internal/db_utils/postgress_utils/models"
+	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 )
 
 func (c *Client) UpdateAnswer(answer rest_utils.AnswerData) error {
-	_, err := c.getLatestAnswer(answer.Key)
+	_, err := c.GetLatestAnswer(answer.Key)
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return errors.Wrap(err, "update answer")
 	}

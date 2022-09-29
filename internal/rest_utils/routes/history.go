@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"KeyValuePermStore/internal/rest_utils"
-	"KeyValuePermStore/internal/rest_utils/gin_context"
+	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
+	"github.com/eyalgolan/key-value-persistent-store/internal/rest_utils/gin_context"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"

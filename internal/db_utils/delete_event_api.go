@@ -1,6 +1,6 @@
 package db_utils
 
-import "KeyValuePermStore/internal/rest_utils"
+import "github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
 
 type DeleteEventAPI interface {
 	DeleteEvent(answer rest_utils.AnswerData) error

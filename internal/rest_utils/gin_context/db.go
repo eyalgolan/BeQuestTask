@@ -1,7 +1,7 @@
 package gin_context
 
 import (
-	"KeyValuePermStore/internal/db_utils/postgress_utils"
+	"github.com/eyalgolan/key-value-persistent-store/internal/db_utils/postgress_utils"
 	"github.com/gin-gonic/gin"
 )
 
