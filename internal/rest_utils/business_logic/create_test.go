@@ -9,47 +9,23 @@ import (
 	"testing"
 )
 
-var (
-	basicAnswer = rest_utils.Answer{
-		Event: "create",
-		Data: rest_utils.AnswerData{
-			Key:   "name",
-			Value: "test",
-		},
-	}
-	emptyAnswer = rest_utils.Answer{
-		Event: "create",
-		Data: rest_utils.AnswerData{
-			Key:   "",
-			Value: "",
-		},
-	}
-	notCreateAnswer = rest_utils.Answer{
-		Event: "something",
-		Data: rest_utils.AnswerData{
-			Key:   "",
-			Value: "",
-		},
-	}
-)
-
 func TestCreateBasicCases(t *testing.T) {
 	var tests = []struct {
 		inputAnswer        rest_utils.Answer
 		expectedStatusCode int
 		expectedErr        error
 	}{
-		{basicAnswer,
+		{test_utils.BasicAnswer,
 			http.StatusCreated,
 			nil,
 		},
 		{
-			emptyAnswer,
+			test_utils.EmptyAnswer,
 			http.StatusCreated,
 			nil,
 		},
 		{
-			notCreateAnswer,
+			test_utils.NotCreateAnswer,
 			http.StatusBadRequest,
 			ErrNotCreate,
 		},
@@ -95,11 +71,11 @@ func TestCreateDuplicate(t *testing.T) {
 	}{
 		{
 			[]inputAndExpectedResult{{
-				inputAnswer:        basicAnswer,
+				inputAnswer:        test_utils.BasicAnswer,
 				expectedStatusCode: http.StatusCreated,
 				expectedErr:        nil,
 			}, {
-				inputAnswer:        basicAnswer,
+				inputAnswer:        test_utils.BasicAnswer,
 				expectedStatusCode: http.StatusBadRequest,
 				expectedErr:        ErrDuplicateAnswer,
 			},
