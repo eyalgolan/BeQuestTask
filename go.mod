@@ -4,7 +4,6 @@ go 1.18
 
 require (
 	github.com/gin-gonic/gin v1.8.1
-	github.com/jmoiron/sqlx v1.3.5
 	github.com/joeshaw/envdecode v0.0.0-20200121155833-099f1fc765bd
 	github.com/pkg/errors v0.9.1
 	gorm.io/driver/postgres v1.3.9

@@ -23,6 +23,16 @@ func main() {
 	if err != nil {
 		return
 	}
+	defer func() {
+		sqlDB, err := db.DB.DB()
+		if err != nil {
+			panic(err)
+		}
+		err = sqlDB.Close()
+		if err != nil {
+			panic(err)
+		}
+	}()
 	router := gin.Default()
 	gin_context.SetDBInContext(router, *db)
 	routes.InitialiseRoutes(router)
