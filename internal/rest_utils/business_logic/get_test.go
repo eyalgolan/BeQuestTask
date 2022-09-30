@@ -22,6 +22,18 @@ func TestGet(t *testing.T) {
 			&test_utils.BasicAnswer.Data,
 			nil,
 		},
+		{
+			"key that doesn't exist",
+			http.StatusBadRequest,
+			nil,
+			ErrNotFound,
+		},
+		{
+			"",
+			http.StatusBadRequest,
+			nil,
+			ErrEmptyKey,
+		},
 	}
 	for _, tt := range tests {
 		testName := fmt.Sprintf("key: \n%s\n expected status code: \n%d\n expected answer: \n%+v\n expected error: \n%+v\n",
@@ -37,9 +49,11 @@ func TestGet(t *testing.T) {
 			}
 			t.Fatal(err)
 		}
-		err = dbClient.CreateAnswer(*tt.expectedAnswerData)
-		if err != nil {
-			t.Fatal(err)
+		if tt.expectedAnswerData != nil {
+			err = dbClient.CreateAnswer(*tt.expectedAnswerData)
+			if err != nil {
+				t.Fatal(err)
+			}
 		}
 		t.Run(testName, func(t *testing.T) {
 			resultStatusCode, resultAnswerData, resultErr := Get(tt.key, *dbClient)
@@ -49,11 +63,15 @@ func TestGet(t *testing.T) {
 			if resultStatusCode != tt.expectedStatusCode {
 				t.Errorf("got %d, want %d", resultStatusCode, tt.expectedStatusCode)
 			}
-			if resultAnswerData.Key != tt.expectedAnswerData.Key {
-				t.Errorf("got %s, want %s", resultAnswerData.Key, tt.expectedAnswerData.Key)
-			}
-			if resultAnswerData.Value != tt.expectedAnswerData.Value {
-				t.Errorf("got %s, want %s", resultAnswerData.Value, tt.expectedAnswerData.Value)
+			if tt.expectedAnswerData != nil {
+				if resultAnswerData.Key != tt.expectedAnswerData.Key {
+					t.Errorf("got %s, want %s", resultAnswerData.Key, tt.expectedAnswerData.Key)
+				}
+				if resultAnswerData.Value != tt.expectedAnswerData.Value {
+					t.Errorf("got %s, want %s", resultAnswerData.Value, tt.expectedAnswerData.Value)
+				}
+			} else if resultAnswerData != nil {
+				t.Errorf("got %+v instead of nil", resultAnswerData)
 			}
 		})
 		err = test_utils.TearDown(dbClient, sqlConnection)
