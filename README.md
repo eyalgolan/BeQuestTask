@@ -1,5 +1,7 @@
 # key-value persistent store
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/eyalgolan/key-value-persistent-store)](https://goreportcard.com/report/github.com/eyalgolan/key-value-persistent-store)
+
 A service that exposes a REST API which allows users to create, update, delete and retrieve answers as key-value pairs.
 The answers are stored in a postgres DB, so they can handle service restarts.
 
