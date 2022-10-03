@@ -15,17 +15,17 @@ func TestCreateBasicCases(t *testing.T) {
 		expectedStatusCode int
 		expectedErr        error
 	}{
-		{test_utils.BasicAnswer,
+		{test_utils.BasicCreateAnswer,
 			http.StatusCreated,
 			nil,
 		},
 		{
-			test_utils.EmptyAnswer,
+			test_utils.EmptyCreateAnswer,
 			http.StatusCreated,
 			nil,
 		},
 		{
-			test_utils.NotCreateAnswer,
+			test_utils.InvalidEventAnswer,
 			http.StatusBadRequest,
 			ErrNotCreate,
 		},
@@ -71,11 +71,11 @@ func TestCreateDuplicate(t *testing.T) {
 	}{
 		{
 			[]inputAndExpectedResult{{
-				inputAnswer:        test_utils.BasicAnswer,
+				inputAnswer:        test_utils.BasicCreateAnswer,
 				expectedStatusCode: http.StatusCreated,
 				expectedErr:        nil,
 			}, {
-				inputAnswer:        test_utils.BasicAnswer,
+				inputAnswer:        test_utils.BasicCreateAnswer,
 				expectedStatusCode: http.StatusBadRequest,
 				expectedErr:        ErrDuplicateAnswer,
 			},

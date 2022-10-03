@@ -3,21 +3,35 @@ package test_utils
 import "github.com/eyalgolan/key-value-persistent-store/internal/rest_utils"
 
 var (
-	BasicAnswer = rest_utils.Answer{
+	BasicCreateAnswer = rest_utils.Answer{
 		Event: "create",
 		Data: rest_utils.AnswerData{
 			Key:   "name",
 			Value: "test",
 		},
 	}
-	EmptyAnswer = rest_utils.Answer{
+	EmptyCreateAnswer = rest_utils.Answer{
 		Event: "create",
 		Data: rest_utils.AnswerData{
 			Key:   "",
 			Value: "",
 		},
 	}
-	NotCreateAnswer = rest_utils.Answer{
+	BasicUpdateAnswer = rest_utils.Answer{
+		Event: "update",
+		Data: rest_utils.AnswerData{
+			Key:   "name",
+			Value: "test",
+		},
+	}
+	EmptyUpdateAnswer = rest_utils.Answer{
+		Event: "update",
+		Data: rest_utils.AnswerData{
+			Key:   "",
+			Value: "",
+		},
+	}
+	InvalidEventAnswer = rest_utils.Answer{
 		Event: "something",
 		Data: rest_utils.AnswerData{
 			Key:   "",

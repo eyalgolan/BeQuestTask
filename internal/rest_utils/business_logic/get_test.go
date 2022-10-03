@@ -19,7 +19,7 @@ func TestGet(t *testing.T) {
 		{
 			"name",
 			http.StatusOK,
-			&test_utils.BasicAnswer.Data,
+			&test_utils.BasicCreateAnswer.Data,
 			nil,
 		},
 		{
