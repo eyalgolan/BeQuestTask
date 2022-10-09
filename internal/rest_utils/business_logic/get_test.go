@@ -32,7 +32,7 @@ func TestGet(t *testing.T) {
 			"",
 			http.StatusBadRequest,
 			nil,
-			ErrEmptyKey,
+			ErrGetEmptyKey,
 		},
 	}
 	for _, tt := range tests {

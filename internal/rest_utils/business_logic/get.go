@@ -9,14 +9,14 @@ import (
 )
 
 var (
-	ErrEmptyKey = errors.New("GET request must include answer key")
-	ErrNotFound = errors.New("Not found")
-	ErrOther    = errors.New("unable to perform request")
+	ErrGetEmptyKey = errors.New("GET request must include answer key")
+	ErrNotFound    = errors.New("Not found")
+	ErrOther       = errors.New("unable to perform request")
 )
 
 func Get(key string, db postgress_utils.DBClient) (int, *rest_utils.AnswerData, error) {
 	if key == "" {
-		return http.StatusBadRequest, nil, ErrEmptyKey
+		return http.StatusBadRequest, nil, ErrGetEmptyKey
 	}
 	answer, err := db.GetLatestAnswer(key)
 	if err != nil {
