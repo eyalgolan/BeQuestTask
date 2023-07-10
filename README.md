@@ -2,8 +2,8 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/eyalgolan/key-value-persistent-store)](https://goreportcard.com/report/github.com/eyalgolan/key-value-persistent-store)
 
-A service that exposes a REST API which allows users to create, update, delete and retrieve answers as key-value pairs.
-The answers are stored in a postgres DB, so they can handle service restarts.
+A service that exposes a REST API that allows users to create, update, delete, and retrieve answers as key-value pairs.
+The answers are stored in a Postgres DB, so they can handle service restarts.
 
 An answer is defined as:
 
@@ -28,12 +28,11 @@ An event is defined as:
 ### API
 The API exposes the following endpoints:
 
-* create answer: ```GET /answers/:key```
-* update answer: ```POST /answers```
-* get answer (returns the latest answer for the given key): 
-```PUT /answers```
-* delete answer: ```DELETE /answers/:key```
-* get history for given key (returns an array of events in chronological order):
+* Get answer for a given key (returns the latest answer for the given key): ```GET /answers/:key```
+* Create answer: ```POST /answers```
+* Update answer: ```PUT /answers```
+* Delete answer: ```DELETE /answers/:key```
+* Get history for a given key (returns an array of events in chronological order):
 ```GET /answers/:key/history```
 
 
